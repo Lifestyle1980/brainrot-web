@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Steal a Brainroot (Robloc) — Web</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Login Gate -->
+    <div id="login-overlay" class="overlay">
+      <div class="card">
+        <h1>Login</h1>
+        <p>Bitte Tool-Passwort eingeben:</p>
+        <input id="login-input" type="password" placeholder="Passwort" />
+        <button id="login-btn">OK</button>
+        <p class="hint">Hinweis: Passwort wie Desktop-Tool.</p>
+      </div>
+    </div>
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="left">
+        <button id="btn-add-account">＋ Account</button>
+        <button id="btn-del-account">🗑 Account</button>
+        <button id="btn-add-brainroot-db">🌱 Brainroot-DB</button>
+        <button id="btn-add-mutation-db">🧬 Mutation-DB</button>
+      </div>
+      <div class="right">
+        <button id="btn-reload">🔄 Reload</button>
+        <button id="btn-export">⬆ Export</button>
+        <button id="btn-import">⬇ Import</button>
+      </div>
+    </header>
+
+    <!-- Info -->
+    <section class="notice">
+      <strong>Hinweis:</strong> Daten werden lokal im Browser gespeichert (localStorage).
+      Mit <em>Export/Import</em> kannst du alles als JSON sichern/übertragen.
+    </section>
+
+    <!-- Accounts Grid -->
+    <main id="accounts-grid" class="grid"></main>
+
+    <!-- Modals -->
+    <dialog id="modal-account">
+      <div class="modal-header">
+        <h3 id="modal-account-title">Account</h3>
+        <button class="close" data-close>×</button>
+      </div>
+      <div class="stats">
+        <div id="stats-line-1"></div>
+        <div id="stats-line-2"></div>
+      </div>
+      <div class="toolbar">
+        <button id="btn-add-br-to-acc">＋ Brainroot hinzufügen</button>
+        <button id="btn-rem-br-from-acc">— Entfernen</button>
+        <button id="btn-move-br">⇄ Übertragen</button>
+      </div>
+      <div class="table-wrap">
+        <table id="table-brainroots">
+          <thead>
+            <tr>
+              <th>#</th><th>Name</th><th>Rarity</th><th>Value</th>
+              <th>Base MPS</th><th>Mutations</th><th>Final MPS</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </dialog>
+
+    <input id="hidden-file" type="file" accept="application/json" hidden />
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
